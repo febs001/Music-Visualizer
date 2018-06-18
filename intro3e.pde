@@ -1,6 +1,6 @@
 /**
-  * This sketch demonstrates how to play a file with Minim using an AudioPlayer. <br />
-  * It's also a good example of how to draw the waveform of the audio. Full documentation 
+  * Shows how to play a file with Minim using an AudioPlayer. <br />
+  * It's also a good example of how to draw the waveform of the audio along with creating a 3-D looping of a parametric figure. Full documentation 
   * for AudioPlayer can be found at http://code.compartmental.net/minim/audioplayer_class_audioplayer.html
   * <p>
   * For more information about Minim and additional features, 
@@ -17,12 +17,10 @@ void setup()
 {
   size(1200, 700, P3D); //1200 length, 700 width (in pixels) - 3D shape of parametric shape 
   
-  // we pass this to Minim so that it can load files from the data directory
+  //load files from the data directory
   minim = new Minim(this);
   
-  // loadFile will look in all the same places as loadImage does.
-  // this means you can find files that are in the data folder and the 
-  // sketch folder. you can also pass an absolute path, or a URL.
+  // load mp3 file for audio track
   player = minim.loadFile("that.mp3");
   
 }
@@ -32,9 +30,9 @@ void draw()
   background(20);//gray
   stroke(225); //white
   strokeWeight(1);
-  translate(width/5, height/2);//point is at the center of the screen
+  translate(width/5, height/2);//image is at the center of the screen
   
-    for(int i =0; i <NUM_LINES; i++) // layering effect 
+    for(int i =0; i <NUM_LINES; i++) // layering effect for shape 
     {
     line(x3(i+ t),y3(i+t), x4(i+t),y4(i+t));
     }
